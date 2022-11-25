@@ -81,7 +81,7 @@ h6 {
 body {
   background-color: #000;
   color: #fff;
-  height: 20000px;
+  height: 7000px;
 }
 
 .lock body {
@@ -120,6 +120,20 @@ body {
 Например header__container, main__container и т.д.
 Снипет (HTML): cnt
 */
+
+.button {
+  padding: 1.25rem 3.125rem;
+  background-color: #fff;
+  font-weight: 700;
+  font-size: 3.125rem;
+  text-align: center;
+  color: #000;
+  border-radius: 3.125rem;
+}
+
+.button._fw {
+  width: 100%;
+}
 
 .rating {
   display: -webkit-box;
@@ -469,6 +483,122 @@ body {
   opacity: 0;
 }
 
+.content-portfolio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 11.25rem;
+}
+
+.content-portfolio__title {
+  text-align: center;
+  font-size: 6.25rem;
+  font-weight: 700;
+}
+
+.content-portfolio__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 3.125rem;
+}
+
+.item-portfolio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 3.75rem;
+}
+
+.item-portfolio__link {
+  text-align: center;
+  font-size: 3.125rem;
+  font-weight: 700;
+  color: #aaa;
+}
+
+.content-contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  gap: 3.125rem;
+}
+
+.content-contacts__title {
+  text-align: center;
+  font-size: 6.25rem;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.content-contacts__text {
+  text-align: center;
+  font-size: 3.75rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.content-contacts__button {
+  cursor: pointer;
+}
+
+.content-contacts__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1.875rem;
+  background-color: #fff;
+  padding: 0.9375rem;
+  border-radius: 1.25rem;
+}
+
+.content-contacts__img {
+  color: red;
+  width: 6.25rem;
+  height: 6.25rem;
+}
+
+.content-contacts__footer {
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+
 @media (min-width: 120em) {
   [class*=__container] {
     padding-left: 0.9375rem;
@@ -506,6 +636,12 @@ body {
 
   [class*=__container] {
     padding-right: clamp( 0.9375rem , 0.9375rem  +  0vw , 0.9375rem );
+  }
+}
+
+@media (any-hover: hover) {
+  .item-portfolio__link:hover {
+    color: #fff;
   }
 }
 

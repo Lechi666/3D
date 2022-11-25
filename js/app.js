@@ -13,6 +13,40 @@
             document.documentElement.classList.add(className);
         }));
     }
+    let isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function() {
+            return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
+        }
+    };
+    function addTouchClass() {
+        if (isMobile.any()) document.documentElement.classList.add("touch");
+    }
+    function fullVHfix() {
+        const fullScreens = document.querySelectorAll("[data-fullscreen]");
+        if (fullScreens.length && isMobile.any()) {
+            window.addEventListener("resize", fixHeight);
+            function fixHeight() {
+                let vh = .01 * window.innerHeight;
+                document.documentElement.style.setProperty("--vh", `${vh}px`);
+            }
+            fixHeight();
+        }
+    }
     function formRating() {
         const ratings = document.querySelectorAll(".rating");
         if (ratings.length > 0) initRatings();
@@ -84,7 +118,7 @@
             }));
         }
     }), 0);
-    let zSpacing = -4e3, lastPos = zSpacing / 5, $frames = document.getElementsByClassName("frame"), script_frames = Array.from($frames), zVals = [];
+    let zSpacing = -500, lastPos = zSpacing / 5, $frames = document.getElementsByClassName("frame"), script_frames = Array.from($frames), zVals = [];
     window.onscroll = function() {
         let top = document.documentElement.scrollTop, delta = lastPos - top;
         lastPos = top;
@@ -98,5 +132,7 @@
     window.scrollTo(0, 1);
     window["FLS"] = true;
     isWebp();
+    addTouchClass();
+    fullVHfix();
     formRating();
 })();
