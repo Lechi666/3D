@@ -81,7 +81,7 @@ h6 {
 body {
   background-color: #000;
   color: #fff;
-  height: 7000px;
+  height: 8000px;
 }
 
 .lock body {
@@ -120,6 +120,12 @@ body {
 Например header__container, main__container и т.д.
 Снипет (HTML): cnt
 */
+
+[class*=__container] {
+  max-width: 121.875rem;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
 
 .button {
   padding: 1.25rem 3.125rem;
@@ -477,6 +483,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   font-size: 3.125rem;
+  white-space: nowrap;
 }
 
 .item-skils__none {
@@ -497,7 +504,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 11.25rem;
+  gap: 3.125rem;
 }
 
 .content-portfolio__title {
@@ -528,6 +535,11 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 3.75rem;
+}
+
+.item-portfolio__screen img {
+  max-width: 31.25rem;
+  max-height: 31.25rem;
 }
 
 .item-portfolio__link {
@@ -599,26 +611,6 @@ body {
   line-height: 150%;
 }
 
-@media (min-width: 120em) {
-  [class*=__container] {
-    padding-left: 0.9375rem;
-  }
-
-  [class*=__container] {
-    padding-right: 0.9375rem;
-  }
-}
-
-@media (max-width: 20em) {
-  [class*=__container] {
-    padding-left: 0.9375rem;
-  }
-
-  [class*=__container] {
-    padding-right: 0.9375rem;
-  }
-}
-
 @media (max-width: 61.99875em) {
   .content-skils__items {
     -ms-grid-columns: (1fr)[2];
@@ -627,15 +619,12 @@ body {
     grid-template-rows: repeat(2, 1fr);
     row-gap: 3.125rem;
   }
-}
 
-@media (min-width: 20em) and (max-width: 120em) {
-  [class*=__container] {
-    padding-left: clamp( 0.9375rem , 0.9375rem  +  0vw , 0.9375rem );
-  }
-
-  [class*=__container] {
-    padding-right: clamp( 0.9375rem , 0.9375rem  +  0vw , 0.9375rem );
+  .content-portfolio__items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
